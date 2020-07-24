@@ -48,7 +48,7 @@ openshift_deployment_type=openshift-enterprise
 openshift_disable_check="disk_availability,memory_availability"
 
 # OpenShift Version(Always use sub-release for smoother upgrades):
-openshift_release=3.11.98
+openshift_release=3.11.232
 
 # Deploy Operator Lifecycle Manager (Tech Preview)
 openshift_enable_olm=true
@@ -70,11 +70,14 @@ openshift_enable_unsupported_configurations=true
 
 # NOTE: Need credentials from: https://access.redhat.com/terms-based-registry/
 oreg_url=registry.redhat.io/openshift3/ose-${component}:${version}
-oreg_auth_user={{REGISTY_USER}}
-oreg_auth_password={{REGISTRY_TOKEN}}
+oreg_auth_user=6914999|ocp-aio.i-3.com
+oreg_auth_password=eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI1MWVlMzc1ZDAzYjA0NTFhODlhNzk1ZjM2YzE0YmRiYiJ9.R7jkkbqBJZ3TVw0ZoLwcVurimf4R4cd5kSAHR0RyGWVIvJ0oiVmY-LAUnkswgBoNNpFzps5tMZ3XGrPtulf4yNNhPziSeeFisQbFSP1tCcGUsjUcpYQrjFHyqTbs7CgSlIUb4GM1jjj0nrmD9u4SSuspaKBJH6NxZ1c9m1T5DVJcQL8FQjvo23kLHl-SGzsF5ZT8McmT-tmizdghM6pq5lOco_LLsTY8XeK8PlVdwcWnnc-saFcx9gn0TfLAMlz4SRvyldrD2TvBmM8cqsgORB4szW-gqkYmakor6HXKVcSzMPIR04ae5zv-sVfwe1oxqacFtWN2-V2P8deEUpofyag5OwRJiXdh3q37hPDqBTPsz7Q3kjAfGyAmkrdAGksXc_IeSKgfHd4nB6vj04_ixADRb79nLEAfwO9r5iTESy4Gc19RvH3GuUboGKLbqoBX_pqEsgfUJgZ2Ef2V4aQPJbgfbC4qesLxmhPFDz_PIfJzpeOzU7nO8bMcAGnZofiJgaiGDOssq9sPJJDBzrd48YXLIUUePQ_s-77zGy70-3fZs0O3TCnjEoKfrh6Lr0HQunFomwSghR0-q23M3foGearAHrY1UhhapsjTHY4S0LrWVPxjn7pQcCg02wSmP3luFAM0jivlJmoZKkzVJkW8vk6iEfTEbeuyEbEyF6eh5jc
+#oreg_auth_user={{REGISTY_USER}}
+#oreg_auth_password={{REGISTRY_TOKEN}}
+
 
 # For Operator Framework Images
-openshift_additional_registry_credentials=[{'host':'registry.connect.redhat.com','user':'{{REGISTY_USER}}','password':'{{REGISTRY_TOKEN}}','test_image':'mongodb/enterprise-operator:0.3.2'}]
+openshift_additional_registry_credentials=[{'host':'registry.connect.redhat.com','user':'6914999|ocp-aio.i-3.com','password':'eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI1MWVlMzc1ZDAzYjA0NTFhODlhNzk1ZjM2YzE0YmRiYiJ9.R7jkkbqBJZ3TVw0ZoLwcVurimf4R4cd5kSAHR0RyGWVIvJ0oiVmY-LAUnkswgBoNNpFzps5tMZ3XGrPtulf4yNNhPziSeeFisQbFSP1tCcGUsjUcpYQrjFHyqTbs7CgSlIUb4GM1jjj0nrmD9u4SSuspaKBJH6NxZ1c9m1T5DVJcQL8FQjvo23kLHl-SGzsF5ZT8McmT-tmizdghM6pq5lOco_LLsTY8XeK8PlVdwcWnnc-saFcx9gn0TfLAMlz4SRvyldrD2TvBmM8cqsgORB4szW-gqkYmakor6HXKVcSzMPIR04ae5zv-sVfwe1oxqacFtWN2-V2P8deEUpofyag5OwRJiXdh3q37hPDqBTPsz7Q3kjAfGyAmkrdAGksXc_IeSKgfHd4nB6vj04_ixADRb79nLEAfwO9r5iTESy4Gc19RvH3GuUboGKLbqoBX_pqEsgfUJgZ2Ef2V4aQPJbgfbC4qesLxmhPFDz_PIfJzpeOzU7nO8bMcAGnZofiJgaiGDOssq9sPJJDBzrd48YXLIUUePQ_s-77zGy70-3fZs0O3TCnjEoKfrh6Lr0HQunFomwSghR0-q23M3foGearAHrY1UhhapsjTHY4S0LrWVPxjn7pQcCg02wSmP3luFAM0jivlJmoZKkzVJkW8vk6iEfTEbeuyEbEyF6eh5jc','test_image':'mongodb/enterprise-operator:0.3.2'}]
 
 # Update examples to point to oreg_url
 # NOTE: change this if using disconnected install
@@ -93,10 +96,10 @@ openshift_master_console_port=8443
 
 #Default:  openshift_master_cluster_method=native
 # Internal cluster name
-openshift_master_cluster_hostname=ocp.example.com
+openshift_master_cluster_hostname=ocp-aio.i-3.com
 
 # NOTE: Default wildcard domain for applications
-openshift_master_default_subdomain=apps.ocp.example.com
+openshift_master_default_subdomain=apps.ocp-aio.i-3.com
 
 ###########################################################################
 ### OpenShift Network Vars
@@ -152,7 +155,7 @@ openshift_metrics_duration=1
 
 openshift_metrics_storage_kind=nfs
 openshift_metrics_storage_access_modes=['ReadWriteOnce']
-openshift_metrics_storage_nfs_directory=/srv/nfs
+openshift_metrics_storage_nfs_directory=/nfs
 openshift_metrics_storage_nfs_options='*(rw,root_squash)'
 openshift_metrics_storage_volume_name=metrics
 openshift_metrics_storage_volume_size=10Gi
@@ -203,7 +206,7 @@ openshift_logging_fluentd_audit_container_engine=false
 # persistent storage for logs
 openshift_logging_storage_kind=nfs
 openshift_logging_storage_access_modes=['ReadWriteOnce']
-openshift_logging_storage_nfs_directory=/srv/nfs
+openshift_logging_storage_nfs_directory=/nfs
 openshift_logging_storage_nfs_options='*(rw,root_squash)'
 openshift_logging_storage_volume_name=logging
 openshift_logging_storage_volume_size=10Gi
@@ -248,7 +251,7 @@ openshift_hosted_registry_enforcequota=true
 
 openshift_hosted_registry_storage_kind=nfs
 openshift_hosted_registry_storage_access_modes=['ReadWriteMany']
-openshift_hosted_registry_storage_nfs_directory=/srv/nfs
+openshift_hosted_registry_storage_nfs_directory=/nfs
 openshift_hosted_registry_storage_nfs_options='*(rw,root_squash)'
 openshift_hosted_registry_storage_volume_name=registry
 openshift_hosted_registry_storage_volume_size=10Gi
@@ -286,19 +289,20 @@ etcd
 nodes
 
 [nfs]
-ocp.example.com 
+ocp-aio.i-3.com
 
 [masters]
-ocp.example.com
+ocp-aio.i-3.com
 
 [etcd]
-ocp.example.com
+ocp-aio.i-3.com
 
 [nodes]
 ## All-In-One with CRI-O
 #ocp.example.com openshift_node_group_name='node-config-all-in-one-crio' openshift_node_problem_detector_install=true
-ocp.example.com openshift_node_group_name='node-config-all-in-one' openshift_node_problem_detector_install=true
+ocp-aio.i-3.com openshift_node_group_name='node-config-all-in-one' openshift_node_problem_detector_install=true
 
 #
 # END OF FILE
 #
+
